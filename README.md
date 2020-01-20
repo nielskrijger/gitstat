@@ -37,13 +37,9 @@ There are plenty of git statistics programs out there but usually I have to do q
 
 The goal of [gitstat.com](https://gitstat.com) is to make such git analysis easier.
 
-However...! Right now the website is very limited feature-wise, likely other git statistics tools will serve your needs better.
-
 ## Todo
 
-- [x] support multiple code repositories
-- [ ] add homebrew
-- [ ] add change stats for file renames
+See the Kanban board [here](https://github.com/nielskrijger/gitstat-web/projects/1).
 
 ## FAQ
 
