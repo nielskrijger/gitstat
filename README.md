@@ -19,6 +19,8 @@ Generates a logfile of git commits and statistics. This file is intended for use
    $ dir <EXTRACTED_PATH>
    $ .\gitstat.exe ..\project-1 ..\project2 <etc>
    ```
+   
+4. Upload the generated file to [gitstat.com](https://gitstat.com).
 
 ## Why?
 
@@ -37,10 +39,18 @@ The goal of [gitstat.com](https://gitstat.com) is to make such git analysis easi
 
 However...! Right now the website is very limited feature-wise, likely other git statistics tools will serve your needs better.
 
-## TODO
+## Todo
 
 - [x] support multiple code repositories
 - [ ] add homebrew
 - [ ] add change stats for file renames
 
+## FAQ
+
+__I miss feature X or found a bug__
+
 If you found a bug or feature suggestions, please open a an issue [here](https://github.com/nielskrijger/gitstat/issues). Issues/features related to the website should be posted in the [gitstat-web repository](https://github.com/nielskrijger/gitstat-web). 
+
+__Can I contribute?__
+
+Yes! Please open a PR. If you want to do significant work I'd recommend opening an issue first, share some thoughts before you invest a lot of your time.
