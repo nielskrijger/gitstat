@@ -7,7 +7,7 @@ import (
 
 type Signature struct {
 	Name  string    `json:"name"`
-	Email string    `json:"email"`
+	Email string    `json:"-"` // don't include email, it's redundant PI
 	When  time.Time `json:"time"`
 }
 
