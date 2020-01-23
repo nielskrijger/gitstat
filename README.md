@@ -1,6 +1,6 @@
 # gitstat
 
-Generates a logfile of git commits and statistics. This file is intended for use on [gitstat.com](https://gitstat.com).
+This tool generates a JSON logfile of one or more git repositories. This logfile is intended for [gitstat.com](https://gitstat.com).
 
 ## How to use?
 
@@ -9,33 +9,18 @@ Generates a logfile of git commits and statistics. This file is intended for use
 3. Run the following on linux/mac:
 
     ```
-    $ dir <EXTRACTED_PATH>
-    $ ./gitstat ../project-1 ../project-2 <etc>
+    $ cd <EXTRACTED_PATH>
+    $ ./gitstat ../project-1 ../project-2
     ```
     
    Or on windows:
    
    ```
    $ dir <EXTRACTED_PATH>
-   $ .\gitstat.exe ..\project-1 ..\project2 <etc>
+   $ .\gitstat.exe ..\project-1 ..\project2
    ```
    
-4. Upload the generated file to [gitstat.com](https://gitstat.com).
-
-## Why?
-
-There are plenty of git statistics programs out there but usually I have to do quite a bit of pre- and post-processing of the data to get the information I'm looking for. This processing usually entailed:
-
-- Eliminating user aliases
-- Eliminating unwanted changes, for example:
-    - limit to certain file types;
-    - exclude certain directories;
-    - remove specific large commits (usually caused by an accident or a lint auto formatter);
-    - ignore merge commits;
-    - ...
-- Making diagrams, tables, overviews, etc
-
-The goal of [gitstat.com](https://gitstat.com) is to make such git analysis easier.
+4. Upload the generated logfile to [gitstat.com](https://gitstat.com).
 
 ## Todo
 
@@ -43,9 +28,15 @@ See the Kanban board [here](https://github.com/nielskrijger/gitstat-web/projects
 
 ## FAQ
 
+__Is the data kept private?__
+
+Yes. The [gitstat.com](https://gitstat.com) website runs within your browser and doesn't store the logfile remotely or even locally. As a result if you refresh the page you'll have to submit the logfile again.
+
+The only data that is stored within your browser are the config settings.
+
 __I miss feature X or found a bug__
 
-If you found a bug or feature suggestions, please open a an issue [here](https://github.com/nielskrijger/gitstat/issues). Issues/features related to the website should be posted in the [gitstat-web repository](https://github.com/nielskrijger/gitstat-web). 
+If you found a bug or have a feature suggestion, please open an issue [here](https://github.com/nielskrijger/gitstat/issues). Issues/features related to the website should be posted in the [gitstat-web repository](https://github.com/nielskrijger/gitstat-web). 
 
 __Can I contribute?__
 
