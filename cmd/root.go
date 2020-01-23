@@ -29,9 +29,12 @@ var (
 					fmt.Printf("\nprocessing %q took %s\n", arg, time.Since(start).Round(time.Millisecond))
 				}
 			}
-			fmt.Printf("\ntotal processing time was %s", time.Since(start).Round(time.Millisecond))
+			if len(os.Args) >= 3 {
+				fmt.Printf("\ntotal processing time was %s", time.Since(start).Round(time.Millisecond))
+			}
 			res, _ := json.Marshal(parser)
 			err := ioutil.WriteFile(outputFile, res, 0644)
+			fmt.Printf("\nwriting output to %q", outputFile)
 			check(err)
 		},
 	}
