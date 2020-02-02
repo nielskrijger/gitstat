@@ -23,19 +23,16 @@ var (
 			parser := internal.NewParser()
 			for i, arg := range os.Args {
 				if i > 0 {
-					fmt.Printf("\nstart processing %q\n", arg)
 					err := parser.ParseProject(arg)
 					check(err)
-					fmt.Printf("\nprocessing %q took %s\n", arg, time.Since(start).Round(time.Millisecond))
 				}
 			}
-			if len(os.Args) >= 3 {
-				fmt.Printf("\ntotal processing time was %s", time.Since(start).Round(time.Millisecond))
-			}
 			res, _ := json.Marshal(parser)
-			err := ioutil.WriteFile(outputFile, res, 0644)
 			fmt.Printf("\nwriting output to %q", outputFile)
+			err := ioutil.WriteFile(outputFile, res, 0644)
 			check(err)
+			
+			fmt.Printf("\ntotal processing time was %s", time.Since(start).Round(time.Millisecond))
 		},
 	}
 )

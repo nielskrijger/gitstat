@@ -5,7 +5,6 @@ go 1.12
 require (
 	github.com/gliderlabs/ssh v0.2.2 // indirect
 	github.com/google/go-cmp v0.3.0 // indirect
-	github.com/pkg/errors v0.8.1
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stretchr/testify v1.4.0 // indirect

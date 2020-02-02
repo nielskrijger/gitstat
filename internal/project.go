@@ -1,7 +1,6 @@
 package internal
 
 import (
-	"fmt"
 	"gopkg.in/src-d/go-billy.v4/osfs"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing/cache"
@@ -12,8 +11,8 @@ import (
 )
 
 type Project struct {
-	Name     string    `json:"name"`
-	Commits  []*Commit `json:"commits"`
+	Name    string  `json:"name"`
+	Commits Commits `json:"commits"`
 
 	filepath string
 }
@@ -25,8 +24,8 @@ func NewProject(path string) (*Project, error) {
 	}
 
 	return &Project{
-		Name: name,
-		Commits: make([]*Commit, 0),
+		Name:     name,
+		Commits:  make(Commits, 0),
 		filepath: path,
 	}, nil
 }
@@ -62,15 +61,15 @@ func (p *Project) ParseCommits() error {
 	}
 
 	// ... iterate over the commits
-	return cIter.ForEach(func(c *object.Commit) error {
-		fmt.Print(".")
-		commit, err := NewCommit(c)
-		if err != nil {
-			return err
-		}
-		p.Commits = append(p.Commits, commit)
+	err = cIter.ForEach(func(c *object.Commit) error {
+		p.Commits = append(p.Commits, NewCommit(c))
 		return nil
 	})
+	if err != nil {
+		return err
+	}
+
+	return p.Commits.ParseFileChanges()
 }
 
 func projectName(fp string) (string, error) {
