@@ -1,6 +1,6 @@
 # gitstat
 
-This tool generates a JSON logfile of one or more git repositories. This logfile is intended for [gitstat.com](https://gitstat.com).
+This tool generates a JSON logfile of one or more git repositories intended to be used on [gitstat.com](https://gitstat.com).
 
 ## How to use?
 
