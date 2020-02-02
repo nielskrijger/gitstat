@@ -33,7 +33,7 @@ func (c Commits) ParseFileChanges() error {
 			}
 		}
 
-		changes, err := currentTree.Diff(toTree)
+		changes, err := toTree.Diff(currentTree)
 		if err != nil {
 			return err
 		}
