@@ -6,7 +6,6 @@ import (
 	"github.com/nielskrijger/gitstat/internal"
 	"github.com/spf13/cobra"
 	"io/ioutil"
-	"os"
 	"time"
 )
 
@@ -21,17 +20,26 @@ var (
 		Run: func(cmd *cobra.Command, args []string) {
 			start := time.Now()
 			parser := internal.NewParser()
-			for i, arg := range os.Args {
-				if i > 0 {
-					err := parser.ParseProject(arg)
-					check(err)
+
+			for _, arg := range args {
+				start2 := time.Now()
+				fmt.Printf("processing %q\n", arg)
+				fmt.Print("parsing commits... ")
+				err := parser.ParseProject(arg)
+				if err != nil {
+					fmt.Printf("%s\n", Red(err))
+				} else {
+					fmt.Printf(Green("done (%v)\n"), time.Since(start2).Round(time.Millisecond))
 				}
 			}
+
 			res, _ := json.Marshal(parser)
 			fmt.Printf("\nwriting output to %q", outputFile)
 			err := ioutil.WriteFile(outputFile, res, 0644)
-			check(err)
-			
+			if err != nil {
+				fmt.Printf("%s\n", Red(err))
+			}
+
 			fmt.Printf("\ntotal processing time was %s", time.Since(start).Round(time.Millisecond))
 		},
 	}
@@ -45,10 +53,16 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&outputFile, "out", "o", "gitstat_result.json", "name of output file")
 }
 
-func check(err error) {
-	if err == nil {
-		return
-	}
+const (
+	Reset   = "\x1b[0m"
+	FgRed   = "\x1b[31m"
+	FgGreen = "\x1b[32m"
+)
 
-	fmt.Print(err)
+func Red(obj interface{}) string {
+	return fmt.Sprintf("%s%v%s", FgRed, obj, Reset)
+}
+
+func Green(obj interface{}) string {
+	return fmt.Sprintf("%s%v%s", FgGreen, obj, Reset)
 }
