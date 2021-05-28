@@ -35,7 +35,7 @@ To release setup your MacOS signing certificate for [gon](https://github.com/mit
 $ export GITHUB_TOKEN="YOUR_GH_TOKEN"
 $ git tag -a v0.0.1 -m "First release"
 $ git push origin v0.0.1
-$ goreleaser release
+$ goreleaser release --rm-dist
 ```
 
 ## FAQ
