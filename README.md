@@ -1,6 +1,7 @@
 # gitstat
 
-This tool generates a JSON logfile of one or more git repositories intended to be used on [gitstat.com](https://gitstat.com).
+This tool generates a JSON logfile of one or more git repositories intended to be used
+on [gitstat.com](https://gitstat.com).
 
 ## How to use?
 
@@ -12,32 +13,47 @@ This tool generates a JSON logfile of one or more git repositories intended to b
     $ cd <EXTRACTED_PATH>
     $ ./gitstat ../project-1 ../project-2
     ```
-    
+
    Or on windows:
-   
+
    ```
    $ dir <EXTRACTED_PATH>
    $ .\gitstat.exe ..\project-1 ..\project2
    ```
-   
+
 4. Upload the generated logfile to [gitstat.com](https://gitstat.com).
 
 ## Todo
 
 See the Kanban board [here](https://github.com/nielskrijger/gitstat-web/projects/1).
 
+# Release
+
+To release setup your MacOS signing certificate for [gon](https://github.com/mitchellh/gon) do the following:
+
+```sh
+$ export GITHUB_TOKEN="YOUR_GH_TOKEN"
+$ git tag -a v0.0.1 -m "First release"
+$ git push origin v0.0.1
+$ goreleaser release
+```
+
 ## FAQ
 
 __Is the data kept private?__
 
-Yes. The [gitstat.com](https://gitstat.com) website runs within your browser and doesn't store the logfile remotely or even locally. As a result if you refresh the page you'll have to submit the logfile again.
+Yes. The [gitstat.com](https://gitstat.com) website runs within your browser and doesn't store the logfile remotely or
+even locally. As a result if you refresh the page you'll have to submit the logfile again.
 
 The only data that is stored within your browser are the config settings.
 
 __I miss feature X or found a bug__
 
-If you found a bug or have a feature suggestion, please open an issue [here](https://github.com/nielskrijger/gitstat/issues). Issues/features related to the website should be posted in the [gitstat-web repository](https://github.com/nielskrijger/gitstat-web). 
+If you found a bug or have a feature suggestion, please open an
+issue [here](https://github.com/nielskrijger/gitstat/issues). Issues/features related to the website should be posted in
+the [gitstat-web repository](https://github.com/nielskrijger/gitstat-web).
 
 __Can I contribute?__
 
-Yes! Please open a PR. If you want to do significant work I'd recommend opening an issue first, share some thoughts before you invest a lot of your time.
+Yes! Please open a PR. If you want to do significant work I'd recommend opening an issue first, share some thoughts
+before you invest a lot of your time.
