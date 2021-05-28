@@ -1,3 +1,4 @@
 gitstat
 *.csv
 dist
+gitstat_result.json
