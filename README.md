@@ -32,7 +32,8 @@ See the Kanban board [here](https://github.com/nielskrijger/gitstat-web/projects
 To release setup your MacOS signing certificate for [gon](https://github.com/mitchellh/gon) do the following:
 
 ```sh
-$ export GITHUB_TOKEN="YOUR_GH_TOKEN"
+$ export AC_PASSWORD="<apps-specific-password>>"
+$ export GITHUB_TOKEN="<github-repo-token>"
 $ git tag -a v0.0.1 -m "First release"
 $ git push origin v0.0.1
 $ goreleaser release --rm-dist

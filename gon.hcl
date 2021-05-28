@@ -10,3 +10,7 @@ apple_id {
 sign {
   application_identity = "Developer ID Application: Niels Krijger"
 }
+
+zip {
+  output_path = "./dist/gitstat_{{ .Version }}_Darwin_x86_64.zip"
+}
