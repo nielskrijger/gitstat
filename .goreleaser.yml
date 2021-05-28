@@ -3,23 +3,27 @@ before:
     - go mod tidy
     - go generate ./...
 builds:
-  - env:
-    - CGO_ENABLED=0
+  - id: gitstat
     goos:
       - linux
-      - darwin
       - windows
     goarch:
-      - 386
       - amd64
+  - id: gitstat-macos
+    goos:
+      - darwin
+    goarch:
+      - amd64
+    hooks:
+      post: gon gon.hcl
 archives:
-- replacements:
-    darwin: Darwin
-    linux: Linux
-    windows: Windows
-    386: i386
-    amd64: x86_64
-  format: zip
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+    format: zip
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -28,5 +32,5 @@ changelog:
   sort: asc
   filters:
     exclude:
-    - '^docs:'
-    - '^test:'
+      - '^docs:'
+      - '^test:'
