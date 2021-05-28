@@ -15,7 +15,7 @@ builds:
     goarch:
       - amd64
     hooks:
-      post: gon gon.hcl
+      post: gon gon.hcl # Sign binary with Developer ID Application certificate
 archives:
   - replacements:
       darwin: Darwin
