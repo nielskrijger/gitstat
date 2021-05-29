@@ -23,8 +23,6 @@ var (
 
 			for _, arg := range args {
 				start2 := time.Now()
-				fmt.Printf("processing %q\n", arg)
-				fmt.Print("parsing commits... ")
 				err := parser.ParseProject(arg)
 				if err != nil {
 					fmt.Printf("%s\n", Red(err))

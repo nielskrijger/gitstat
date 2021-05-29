@@ -8,7 +8,10 @@ import (
 type Commits []*Commit
 
 func (c Commits) ParseFileChanges() error {
+	bar := NewProgressBar("Comparing file changes", int64(len(c)))
+
 	for _, commit := range c {
+		bar.Increment()
 		currentTree, err := commit.originalCommit.Tree()
 		if err != nil {
 			return err
